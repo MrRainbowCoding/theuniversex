@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Script/Winbox/winbox.bundle.min.js"></script>
+    <link rel="stylesheet" href="Style/Main.css">
+    <script src="/Kernel/FileSystem.js"></script>
+    <script src="/Kernel/Anime.js"></script>
+    <title>MountainDesktop !</title>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="Taskbar">
+        <div class="StartButton" onclick="ToggleStartMenu();" onmousewheel="ToggleSecondMenu();">
+            <svg width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 28L17.1663 2L28.5775 23.45H10.0591M31 28H7.07659" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div id="TaskbarSoftwares">
+        </div>
+        <div class="RightButtons">
+            <button onclick="Shell.ChangeWorkspace(Shell.Workspace - 1);this.innerHTML = Shell.Workspace - 1;document.getElementById('WorkspaceAdd').innerHTML = Shell.Workspace + 1;document.getElementById('WorkspaceNumber').value = Shell.Workspace;" id="WorkspaceRemove">0</button>
+            <input type="text" Number id="WorkspaceNumber" onchange="Shell.ChangeWorkspace(eval(this.value));document.getElementById('WorkspaceRemove').innerHTML = Shell.Workspace - 1;document.getElementById('WorkspaceAdd').innerHTML = Shell.Workspace + 1;" onclick="select()" value="1"></input>
+            <button onclick="Shell.ChangeWorkspace(Shell.Workspace + 1);this.innerHTML = Shell.Workspace + 1;document.getElementById('WorkspaceRemove').innerHTML = Shell.Workspace - 1;document.getElementById('WorkspaceNumber').value = Shell.Workspace;" id="WorkspaceAdd">2</button>
+        </div>
+        <div id="Grab"></div>
+    </div>
+    <div id="StartMenu">
+        <div class="Tile" onclick="CreateWindow({'Name' : 'Terminal' , 'Title' : 'Terminal'})">
+            <p class="Title">Terminal</p>
+            <p class="Subtitle">Terminal emulator for EwOS</p>
+        </div>
+        <div class="Tile" onclick="CreateWindow({'Name' : 'Border' , 'Title' : 'Border'})">
+            <p class="Title">Border</p>
+            <p class="Subtitle">Useful web browser</p>
+        </div>
+        <div class="Tile" onclick="CreateWindow({'Name' : 'FilesManager' , 'Title' : 'Files'})">
+            <p class="Title">File Manager</p>
+            <p class="Subtitle">Simple file manager</p>
+        </div>
+        <div class="Tile" onclick="CreateWindow({'Name' : 'TextEditor' , 'title' : 'Text editor : /'})">
+            <p class="Title">Text editor</p>
+            <p class="Subtitle">Text editor for EwOS</p>
+        </div>
+        <div class="Tile" onclick="CreateWindow({'Name' : 'Store' , 'title' : 'Store'})">
+            <p class="Title">Software Store</p>
+            <p class="Subtitle">Install third party applications</p>
+        </div>
+        <div class="Tile" onclick="CreateWindow({'Name' : 'Settings'})">
+            <p class="Title">Settings</p>
+            <p class="Subtitle">System settings of EwOS</p>
+        </div>
+        <div id="MoreSoftwares">
+        </div>
+    </div>
+    <div id="SecondMenu">
+        <div class="Tile" onclick="Kernel.SetShell('Terminal')">
+            <p class="Title">Terminal Shell</p>
+            <p class="Subtitle">Switch to the terminal shell !</p>
+        </div>
+    </div>
+    <div id="Desktop" style="height: calc(100%-63px);"></div>
+    <div id="WindowsManager" style="height: calc(100%-63px);"></div>
+    <div id="ContextMenu">
+        <button class="CtxMenuElement">Nothing in the context menu !</button>
+    </div>
+    <div id="Notification" onclick="javascript:eval(notification_to_execute);">
+        <h3 id="NotificationTitle">Title</h3>
+        <p id="NotificationMessage">Message</p>
+    </div>
+    <iframe src="" frameborder="0" id="PreIFRAME"></iframe>
+    <script src="Script/Main.js"></script>
+    <script src="Controllers/ContextMenu.js"></script>
+</body>
+</html>

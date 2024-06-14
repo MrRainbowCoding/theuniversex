@@ -1,0 +1,411 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/metropolis.min.css");
+
+body{
+    background-image: url("/System/Assets/Background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    padding: 0px;
+    height: 100%;
+    margin: 0px;
+}
+
+.Taskbar{
+    animation-name: TaskbarAnimation;
+    background-color: #101026;
+    animation-duration: 0.9s;
+    position: absolute;
+    display: flex;
+    height: 63px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.StartButton{
+    border-radius: 9px;
+    position: absolute;
+    padding: 5px;
+    z-index: 3;
+    left: 5px;
+    top: 9px;
+}
+
+.StartButton:hover{
+    background-color: rgba(0, 0, 0, 0.309);
+}
+
+#StartMenu , #SecondMenu{
+    animation-name: ZoomInStartMenu;
+    background-color: #101026;
+    animation-duration: 0.3s;
+    border-radius: 13px;
+    position: absolute;
+    max-height: 801px;
+    display: none;
+    width: 503px;
+    bottom: 71px;
+    left: 9px;
+}
+
+#TaskbarSoftwares{
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+#TaskbarSoftwares button{
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    color: white;
+    border: none;
+    height: calc(100% - 6px);
+    width: 63px;
+    top: 0px;
+    margin: 3px;
+    margin-left: 0px;
+    border-radius: 5px;
+}
+
+#TaskbarSoftwares button svg{
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    border: none;
+    height: 100%;
+    width: 63px;
+    top: 0px;
+}
+
+#TaskbarSoftwares button[Minimized = "true"]{
+    opacity: 0.51;
+}
+
+#TaskbarSoftwares button[Focused = "true"]{
+    background-color: #14143091;
+}
+
+#TaskbarSoftwares button:hover{
+    background-color: #13134291;
+}
+
+#TaskbarSoftwares button img{
+    image-resolution: 29px*29px;
+    height: 29px;
+    width: 29px;
+}
+
+#Grab{
+    background: #2F2DA7;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 10.9px;
+    height: 41px;
+    z-index: 3;
+    width: 5px;
+    right: 9px;
+}
+
+#Grab:hover{
+    background: #201f80;
+}
+
+.RightButtons{
+    position: absolute;
+    right: 25px;
+    top: 9.5px;
+}
+
+.RightButtons button , .RightButtons input{
+    background: #1b1b51;
+    position: relative;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    height: 41px;
+    border: none;
+    width: 41px;
+    margin: 0px;
+    z-index: 3;
+}
+
+.RightButtons input[Number]{
+    background-color: #1a1a5e;
+}
+
+.RightButtons button:hover , .RightButtons input:hover{
+    background: #2e2e74;
+}
+
+.winbox {
+    background-color: #10102657;
+    backdrop-filter: blur(19.5px);
+    animation-duration: 0.3s;
+    animation-name: ZoomIn;
+    border-radius: 9px;
+    box-shadow: none;
+}
+
+.winbox.min {
+    background-color: #101026;
+    backdrop-filter: blur(0px);
+    border-radius: 0px;
+    position: absolute;
+    box-shadow: none;
+    height: 61px;
+    left: 0px;
+}
+
+.wb-title {
+    font-family: "metropolis" , sans-serif;
+}
+
+.wb-body {
+    border-radius: 0px 0px 9px 9px;
+    background-color: transparent;
+}
+
+.wb-control *{
+    transition: all 0.1s ease-in-out;
+    margin-right: 0.9px;
+}
+
+.wb-min {
+    background-image: url("/System/Assets/Window/Minimize.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+.wb-max {
+    background-image: url("/System/Assets/Window/Maximize.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+.wb-close {
+    background-image: url("/System/Assets/Window/Close.svg");
+    background-position: center;
+    background-size: contain;
+    margin-right: 3px;
+}    
+
+.wb-menu{
+    background-image: url("/System/Assets/Window/Menu.svg");
+    background-position: center;
+    background-size: contain;
+    margin-right: 3px;
+}
+
+.wb-package{
+    background-image: url("/System/Assets/Window/Package.svg");
+    background-position: center;
+    background-size: contain;
+    margin-right: 3px;
+}
+
+
+.wb-control *:hover{
+    transform: scale(1.09);
+}
+
+.wb-full {
+    display: none;
+}
+
+.Tile{
+    border-radius: 13px;
+    padding: 9px;
+    margin: 9px;
+}
+
+.Tile:hover{
+    background-color: #09091a;
+}
+
+.Tile .Title{
+    font-weight: lighter;
+    font-size: 29px;
+    color: white;
+    margin: 13px;
+    text-align: center;
+}
+
+.Tile .Subtitle{
+    font-weight: lighter;
+    color: white;
+    margin: 3px;
+    text-align: center;
+}
+
+#Username{
+    font-weight: lighter;
+    font-size: large;
+    color: white;
+}
+
+#ContextMenu{
+    background-color: #101026;
+    animation-duration: 0.3s;
+    animation-name: ZoomIn;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    padding: 5px;
+    width: 141px;
+    z-index: 13;
+}
+.CtxMenuElement{
+    background-color: #101026;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    padding: 9px;
+    width: 139px;
+}
+.CtxMenuElement:hover{
+    background-color: #1b1b50;
+}
+#Notification{
+    animation-name: NotificationAnimation;
+    padding: 13px 25px 13px 25px;
+    background-color: #101026;
+    animation-duration: 0.59s;
+    position: absolute;
+    color: white;
+    display: none;
+    bottom: 71px;
+    height: auto;
+    border: none;
+    z-index: 953;
+    resize: none;
+    right: 5px;
+}
+#PreIFRAME{
+    display: none;
+}
+#Desktop *{
+    text-align: center;
+}
+#Desktop img{
+    height: 31px;
+    width: 31px;
+}
+#Desktop button{
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 103px;
+    display: flex;
+    border: none;
+    width: 103px;
+}
+#Desktop button:hover{
+    background-color: #10102679;
+}
+#BottomContainer{
+    display: flex;
+    justify-content: center;
+}
+#PhoneGrab{
+    background-color: var(--TaskbarColor);
+    border-radius: 9px;
+    position: absolute;
+    bottom: 13px;
+    height: 5px;
+    width: 50%;
+}
+#Time{
+    text-align: center;
+    color: var(--TaskbarColor);
+}
+#ApplicationContainer{
+    background-color: transparent;
+    position: absolute;
+    height: 100%;
+    border: none;
+    z-index: -1;
+    width: 100%;
+    top: 0px;
+}
+.circle {
+    z-index: 9999999999999999999999999999999;
+    --circle-size: 25px;
+    position: fixed;
+    height: var(--circle-size);
+    width: var(--circle-size);
+    background-color: #FFFFFF31;
+    border-radius: 100%;
+    top: calc(var(--circle-size) / 2 * -1);
+    left: calc(var(--circle-size) / 2 * -1);
+    pointer-events: none;
+}
+@keyframes TaskbarAnimation{
+    0%{
+      transform : scale(0.91) translateY(63px);
+      opacity : 0 ;
+    }
+    51%{
+        transform: translateY(0px);
+      opacity : 1 ;
+    }
+    100%{
+      transform : scale(1) ;
+    }
+}
+@keyframes NotificationAnimation{
+    0%{
+      transform : scale(0.91) translateX(91px);
+      opacity : 0 ;
+    }
+    51%{
+        transform: translateX(0px);
+        opacity : 1 ;
+    }
+    100%{
+      transform : scale(1) ;
+    }
+}
+@keyframes ZoomIn{
+    from{
+      transform : scale(0.91);
+      opacity : 0 ;
+    }
+    to{
+      transform : scale(1) ;
+      opacity : 1 ;
+    }
+}
+@keyframes ZoomInStartMenu{
+    from{
+      transform : scale(0.91) translate(-10% , 10%);
+      opacity : 0 ;
+    }
+    to{
+      transform : scale(1) translate(0px , 0px);
+      opacity : 1 ;
+    }
+}
+@keyframes ZoomOut{
+    from{
+        transform : scale(1) ;
+        opacity : 1 ;
+    }
+    to{
+      transform : scale(0.91);
+      opacity : 0 ;
+    }
+}
+*{
+    cursor: url("/System/Assets/Cursor.png") , default;
+    font-family: "metropolis" , sans-serif;
+    cursor: none;
+}
+*:hover{
+    cursor: none;
+}
